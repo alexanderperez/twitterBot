@@ -14,10 +14,6 @@ function getRandom(arr) {
 
 console.log(getRandom(knots));
 
-
-// don't tweet, just testing
-//return;
-
 // load .env
 require('dotenv').config();
 
@@ -44,14 +40,6 @@ function tweet() {
             console.log(data.text);
         });
     };
-    
-//    // tweet message
-//    var msg = 'I can tie a ' + getRandom(knots) + ' knot!';
-//    //    var msg = 'This is a random number: ' + Math.random() * 1000
-//    
-//    T.post('statuses/update', { status: msg }, function(err, data, res) {
-//        console.log(data.text);
-//    });
 }
 
 setInterval(tweet, 1000 * 60 * 5);
