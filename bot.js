@@ -38,7 +38,7 @@ function tweet() {
     
     function gotWord(err, response, body) {
         // tweet message
-        var msg = JSON.parse(body)[0].word + ' ' + getRandom(knots);
+        var msg = JSON.parse(body)[0].word.toUpperCase + ' ' + getRandom(knots).toUpperCase;
         
         T.post('statuses/update', { status: msg }, function(err, data, res) {
             console.log(data.text);
