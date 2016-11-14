@@ -36,9 +36,13 @@ function tweet() {
     
     request(url, gotWord);
     
+    String.prototype.capitalize = function() {
+    return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+    };
+    
     function gotWord(err, response, body) {
         // tweet message
-        var msg = JSON.parse(body)[0].word.toUpperCase + ' ' + getRandom(knots).toUpperCase;
+        var msg = JSON.parse(body)[0].word.toUpperCase + ' ' + getRandom(knots);
         
         T.post('statuses/update', { status: msg }, function(err, data, res) {
             console.log(data.text);
